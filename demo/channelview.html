@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>Channel Performance Snapshot Component</title>
+    <script src="../node_modules/webcomponents.js/webcomponents.min.js"></script>
+    <link rel="import" href="../sa-channel-view.html">
+
+    <style>
+        body {
+            background-color: #efefef;
+        }
+        sa-channel-view {
+            width: 200px;
+            height: 120px;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<sa-channel-view
+        label="KEXP Song of the Day"
+        assetsperday="0.976"
+        resolution="7"
+        daystolookback="30"
+        barcolor="#7bbedd"
+        activity="1437634800000,1437721200000,1437980400000,1438066800000,1438153200000,1438239600000,1438326000000,1438585200000,1438671600000,1438758000000,1438844400000,1438930800000,1439190000000,1439276400000"
+        activedays="320">
+</sa-channel-view>
+</body>
+</html>

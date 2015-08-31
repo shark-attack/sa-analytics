@@ -1,0 +1,42 @@
+<script src="src/sa-channel-view.js"></script>
+<script src="src/d3.min.js"></script>
+<template>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:400,700,900);
+
+        :host {
+            display: inline-block;
+            overflow: hidden;
+            font-family: 'Lato', sans-serif;
+        }
+
+        :host h1 {
+            font-weight: bolder;
+            font-size: larger;
+            margin: 5px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        :host span {
+            font-weight: lighter;
+            font-size: smaller;
+        }
+
+        :host span.assets-per-day {
+            font-weight: bolder;
+            color: #7bbedd;
+        }
+
+        :host span.active-days {
+            font-weight: bolder;
+        }
+    </style>
+    <h1></h1>
+    <svg></svg>
+    <div>
+        <span class="active-days"></span>&nbsp;<span>days</span>&nbsp;
+        <span class="assets-per-day"></span>&nbsp<span>assets per day</span>
+    </div>
+</template>

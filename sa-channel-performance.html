@@ -1,7 +1,103 @@
+<link rel="import" href="sa-channel-view.html">
+
 <script src="src/sa-channel-performance.js"></script>
 <script src="src/d3.min.js"></script>
-<link rel="stylesheet" href="style/sa-channel-performance.css" />
+
 <template>
-    <svg id="viz"></svg>
-    <content></content>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:400,700,900);
+
+        :host {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            background-color: #efefef;
+            overflow-y: hidden;
+            width: 100%
+        }
+
+        :host .page {
+            margin-top: 150px;
+            height: calc(100vh - 180px);
+            overflow-y: scroll;
+            padding-top: 25px;
+        }
+
+        :host .header {
+            width: 100%;
+            height: 150px;
+            background-color: #dfdfdf;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: #cdcdcd;
+            position: absolute;
+        }
+
+        :host .header sa-channel-view {
+            width: calc(100% - 50px);
+            background-color: inherit;
+            overflow-x: auto;
+        }
+
+        :host h1 {
+            font-weight: lighter;
+            font-size: medium;
+            color: #878787;
+            margin: 5px;
+        }
+
+
+        :host sa-channel-view {
+            width: 200px;
+            height: 120px;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        :host .compact-channel {
+            width: 200px;
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        :host .compact-channel h1 {
+            font-weight: bolder;
+            font-size: medium;
+            color: black;
+            margin: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        :host .compact-channel span {
+            font-weight: lighter;
+            font-size: x-small;
+        }
+
+        :host .compact-channel span.apd {
+            font-weight: bolder;
+            color: #7bbedd;
+        }
+    </style>
+
+    <div class="header"></div>
+
+    <div class="page">
+        <h1>Top Performing Channels</h1>
+        <div class="container top-channels"></div>
+
+        <h1>Lowest Performing Channels</h1>
+        <div class="container bottom-channels"></div>
+
+        <h1>All Channels</h1>
+        <div class="container all-channels"></div>
+    </div>
+
 </template>
