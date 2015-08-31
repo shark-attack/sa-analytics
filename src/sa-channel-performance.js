@@ -19,7 +19,9 @@ var SAChannelPerformance = (function (_HTMLElement) {
 
     _createClass(SAChannelPerformance, [{
         key: 'setProperties',
-        value: function setProperties() {}
+        value: function setProperties() {
+            this.uri = '';
+        }
     }, {
         key: 'loadData',
 
@@ -34,7 +36,7 @@ var SAChannelPerformance = (function (_HTMLElement) {
                 var data = JSON.parse(xhr.response);
                 _this.createChannelViews(data);
             });
-            xhr.open("get", '../data/channelfreq.json', true);
+            xhr.open("get", this.uri, true);
             xhr.send();
         }
     }, {
@@ -147,7 +149,6 @@ var SAChannelPerformance = (function (_HTMLElement) {
          */
         value: function onChannelClick(event) {
             var id = event.currentTarget.getAttribute('data-channelid');
-            console.log(event.currentTarget, id);
             if (this.bigview.parentNode) {
                 this.headercontainer.removeChild(this.bigview);
             }
@@ -164,7 +165,11 @@ var SAChannelPerformance = (function (_HTMLElement) {
         /**
          * parse attributes on element
          */
-        value: function parseAttributes() {}
+        value: function parseAttributes() {
+            if (this.hasAttribute('uri')) {
+                this.uri = this.getAttribute('uri');
+            }
+        }
     }, {
         key: 'createdCallback',
 

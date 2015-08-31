@@ -1,5 +1,6 @@
 class SAChannelPerformance extends HTMLElement {
     setProperties() {
+        this.uri = '';
     };
 
     /**
@@ -11,7 +12,7 @@ class SAChannelPerformance extends HTMLElement {
             var data = JSON.parse(xhr.response);
             this.createChannelViews(data);
         });
-        xhr.open("get", '../data/channelfreq.json', true);
+        xhr.open("get", this.uri, true);
         xhr.send();
     };
 
@@ -116,7 +117,12 @@ class SAChannelPerformance extends HTMLElement {
     /**
      * parse attributes on element
      */
-    parseAttributes() {};
+    parseAttributes() {
+        if (this.hasAttribute('uri')) {
+            this.uri = this.getAttribute('uri');
+        }
+
+    };
 
     // Fires when an instance of the element is created.
     createdCallback() {
